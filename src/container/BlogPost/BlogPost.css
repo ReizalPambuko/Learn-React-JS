@@ -1,0 +1,59 @@
+.post{
+    display: flex;
+    align-items: center;
+}
+.content{
+    margin-left: 20px;
+}
+
+.sectionPost{
+    font-size: 2rem;
+    font-weight: bold;
+}
+.title-dummy{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+/*
+Form
+*/
+.form-add-post{
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0,0,0,.3);
+    width: 30%;
+    border-radius: 5px;
+}
+
+#title{
+    padding: 8px;
+    border: none;
+    outline: none;
+    border: 1px solid rgb(75, 75, 75);
+    border-radius: 2px;
+    width: 90%;
+}
+
+.form-add-post label{
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.btn-submit{
+    border: none;
+    outline: none;
+    background-color: rgb(50, 50, 255);
+    border-radius: 5px;
+    padding: 10px 25px;
+    color: #fff;
+    margin-top: 20px;
+    transition: background .3s;
+    cursor: pointer;
+}
+
+.btn-submit:hover{
+    background-color: rgb(3, 3, 223);
+}
+
+#body-content{
+    width: 90%;
+}
