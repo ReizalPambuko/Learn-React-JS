@@ -20,9 +20,33 @@
     },
     {
       "userId": 1,
-      "id": 4,
+      "id": 5,
       "title": "json-server",
       "body": "typicode"
+    },
+    {
+      "userId": 1,
+      "id": 6,
+      "title": "json-server",
+      "body": "typicode"
+    },
+    {
+      "id": 1675486465717,
+      "title": "reizal",
+      "body": "pambuko",
+      "userId": 1
+    },
+    {
+      "id": 1675918601459,
+      "title": "Mohammad Reizal Pambuko",
+      "body": "Front End Developer, SKILL HTML, CSS, JAVASCRIPT, BOOTSTRAP, TAILWIND, GIT, GITHUB, TESTING, REACT JS",
+      "userId": 1
+    },
+    {
+      "id": 1675922543780,
+      "title": "s",
+      "body": "S",
+      "userId": 1
     }
   ],
   "comments": [],

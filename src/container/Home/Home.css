@@ -1,0 +1,13 @@
+.d-flex{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div a{
+    background-color: blueviolet;
+    color: #fff;
+    padding: 10px 27px;
+    margin: 20px;
+    text-decoration: none;
+}

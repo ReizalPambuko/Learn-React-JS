@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from "react";
-import CardProduct from "../CardProduct/CardProduct";
 import "./Product.css";
 
 class Product extends Component {
