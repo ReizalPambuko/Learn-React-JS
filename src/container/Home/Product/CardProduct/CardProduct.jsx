@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Product from "../Product";
 
 class CardProduct extends Component {
     state = {

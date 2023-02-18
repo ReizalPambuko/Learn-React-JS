@@ -2,6 +2,7 @@ import React, {Component,Fragment} from "react";
 import "./BlogPost.css";
 import Post from "./Post/Post";
 import axios from "axios";
+import API from "../../services";
 
 class BlogPost extends Component{
     state = {
@@ -12,27 +13,27 @@ class BlogPost extends Component{
             body: '',
             userId: 1
         },
-        updateData: false
+        updateData: false,
+        comment: []
     }
 
     getPokeApi = () => {
-        axios.get("http://localhost:3004/posts?_sort=id&_order=desc")
-        .then(res => {
+        API.GetNewsBlog()
+        .then(result => {
             this.setState({
-                post: res.data,
-                formBlogPost: {
-                    id: 1,
-                    title: '',
-                    body: '',
-                    userId: 1                
-                },
+                post: result
+            })
+        })
+        API.GetComment()
+        .then(result => {
+            this.setState({
+                comment: result
             })
         })
     }
 
     handleRemove = (data) => {
-        axios.delete(`http://localhost:3004/posts/${data}`)
-        .then((res) => {
+        API.DeleteNews(data).then(result => {
             this.getPokeApi();
         })
     }
@@ -56,23 +57,33 @@ class BlogPost extends Component{
     }
     
     postDataToApi = () => {
-        axios.post('http://localhost:3004/posts',this.state.formBlogPost)
-        .then(res => console.log(res))
-        this.getPokeApi();
-    }
-
-    putDataToApi = () => {
-        axios.put(`http://localhost:3004/posts/${this.state.formBlogPost.id}`,this.state.formBlogPost)
-        .then(res => {
+        API.PostNewsBlog(this.state.formBlogPost)
+        .then(result => {
             this.getPokeApi();
             this.setState({
-                updateData: false,
-                    formBlogPost: {
+                formBlogPost: {
                 id: 1,
                 title: '',
                 body: '',
                 userId: 1
             }
+        }) 
+    })
+}
+
+
+
+    putDataToApi = () => {
+        API.Updates(this.state.formBlogPost, this.state.formBlogPost.id).then(result => {
+            this.getPokeApi();
+            this.setState({
+            updateData: false,
+                formBlogPost: {
+                id: 1,
+                title: '',
+                body: '',
+                userId: 1
+                }
             })
         })
     }
@@ -114,6 +125,11 @@ class BlogPost extends Component{
                     <br />
                     <button className="btn-submit" onClick={this.handleSubmit}>Simpan</button>
                 </div>
+                {/* {
+                    this.state.comment.map(com => {
+                        return <p>{com.name} - {com.email}</p>
+                    })
+                } */}
                 {
                     this.state.post.map(post => {
                             return <Post key={post.id} data={post} remove={this.handleRemove} update={this.updateSub} detail={this.dataDetail} />
